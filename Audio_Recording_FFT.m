@@ -7,6 +7,7 @@ clc; close all; clear all;
 %% Read audio recording file into MATLAB
 % read audio data and sampling frequency of audio recording
 filename = "440HzTone.wav";
+% filename = "1020HzTone.wav";
 [y, Fs] = audioread(filename);
 Ts = 1/Fs;                          % sampling period
 t = 0:1/Fs:(length(y) - 1)/Fs;      % time vector
@@ -41,9 +42,8 @@ ylabel("Relative Intensity");
 subplot(1, 3, 3);
 plot(f1, P1);
 lower_freq = 0;         % lowerbound frequency to be shown in plot
-upper_freq = 1000;      % upperbound frequency
-xlim([lower_freq upper_freq]);      % plot with zoomed-in x-axis
+upper_freq = 1500;      % upperbound frequency
+xlim([lower_freq upper_freq]);      % plot with zoomed-in horizontal axis
 title("Truncated FFT of " + filename);
 xlabel("Frequency [Hz]");
 ylabel("Relative Intensity");
-
